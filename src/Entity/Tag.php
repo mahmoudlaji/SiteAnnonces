@@ -24,13 +24,7 @@ class Tag {
      */
     private $nom;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Annonce", mappedBy="tags")
-     */
-    private $annonces;
-
-    public function __construct()
-    {
+    public function __construct() {
         $this->annonces = new ArrayCollection();
     }
 
@@ -51,13 +45,11 @@ class Tag {
     /**
      * @return Collection<int, Annonce>
      */
-    public function getAnnonces(): Collection
-    {
+    public function getAnnonces(): Collection {
         return $this->annonces;
     }
 
-    public function addAnnonce(Annonce $annonce): self
-    {
+    public function addAnnonce(Annonce $annonce): self {
         if (!$this->annonces->contains($annonce)) {
             $this->annonces[] = $annonce;
             $annonce->addTag($this);
@@ -66,8 +58,7 @@ class Tag {
         return $this;
     }
 
-    public function removeAnnonce(Annonce $annonce): self
-    {
+    public function removeAnnonce(Annonce $annonce): self {
         if ($this->annonces->removeElement($annonce)) {
             $annonce->removeTag($this);
         }

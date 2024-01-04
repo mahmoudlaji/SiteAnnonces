@@ -35,15 +35,6 @@ class AnnonceType extends AbstractType {
                     'label' => 'Catégorie',
                     'attr' => ['class' => 'form-select']
                 ])
-                ->add('tags', EntityType::class, [
-                    'required' => true,
-                    'multiple' => true,
-                    'expanded' => true,
-                    'class' => Tag::class,
-                    'choice_label' => 'nom',
-                    'label' => 'Tag',
-                        //'attr' => ['class' => 'form-select']
-                ])
                 ->add('titre', TextType::class, [
                     'required' => true,
                     'label' => 'Titre',
